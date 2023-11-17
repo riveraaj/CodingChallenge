@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Challenge Page";
+}
+
+<article id="multiple" class="container">
+    <h2 class="tittle-text">Multiple</h2>
+    <section class="form-container">
+        <form asp-controller="Challenge" asp-action="CalculateMultiple" method="post">
+            <label class="body-text" for="multipleNumber">Type a number</label>
+            <input type="number" name="multipleNumber" min="2" max="999" required>
+            <input class="btn-text" type="submit" value="Submit">
+        </form>
+    </section>
+
+    <section class="info">
+        <span class="text-danger">@ViewBag.CalculateMultipleError</span>
+        <span class="result">@ViewBag.CalculateMultiple</span>
+    </section>
+</article>
+
+<hr class="container">
+<article id="vocals" class="container">
+    <h2 class="tittle-text">Vocals</h2>
+    <section class="form-container">
+        <form asp-controller="Challenge" asp-action="CalculateVocals" method="post">
+            <label class="body-text" for="vocalsText">Type a text</label>
+            <input type="text" name="vocalsText" pattern="[a-zA-Z\s]+" title="Only words are allowed" required>
+            <input class="btn-text" type="submit" value="Submit">
+        </form>
+    </section>
+
+    <section class="info">
+        <span class="text-danger">@ViewBag.CalculateVocalsError</span>
+        <span class="result">@ViewBag.CalculateVocals</span>
+    </section>
+</article>
+<hr class="container">
+
+<article id="persons" class="container">
+    <h2 class="tittle-text">Persons</h2>
+    <section class="form-container">
+        <form asp-controller="Challenge" asp-action="GetPersonList" method="get">
+            <input class="btn-text" type="submit" value="Get List">
+        </form>
+    </section>
+
+    <section class="info">
+        <span class="text-danger">@ViewBag.ErrorList</span>
+    </section>
+
+    <section class="table">
+        <table class="body-text">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Country</th>
+            </tr>
+            @if (ViewBag.GetPersonList != null)
+            {
+
+                var personList = ViewBag.GetPersonList;
+
+                @foreach (var person in personList)
+                {
+                    <tr>
+                        <td>
+                            @person.FirstName
+                        </td>
+                        <td>
+                            @person.LastName
+                        </td>
+                        <td>
+                            @person.Country
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </section>
+</article>

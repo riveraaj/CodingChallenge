@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Technical Test</title>
+    <meta name="author" content="Jonathan Rivera" />
+    <link rel="icon" href="~/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+</head>
+<body>
+    <header>
+        <nav class="principal-nav container">
+            <section class="principal-nav__logo-menu">
+                <a asp-controller="Challenge" asp-action="Index" class="principal-nav__logo-menu__link">Technical Test</a>
+                <span class="principal-nav__logo-menu__btn-mobile material-symbols-outlined">menu</span>
+            </section>
+
+            <section class="principal-nav__link-list">
+                <a href="/Challenge/Index#multiple">Multiple</a>
+                <a href="/Challenge/Index#vocals">Vocals</a>
+                <a href="/Challenge/Index#persons" ">Persons</a>
+            </section>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <span class="small-text">By Jonathan Rivera</span>
+    </footer>
+    <script src="~/js/code.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
